@@ -1,4 +1,7 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+
+service = Service('C:\\Users\\softw\Downloads\\chromedriver.exe')
 
 def get_driver():
     # Setting options to make browsing easier
@@ -11,7 +14,7 @@ def get_driver():
     options.add_experimental_option("excludeSwitches", ["enable-automation"])
 
     # Creating a driver
-    driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome(service=service, options=options)
     driver.get("https://www.goodreads.com/author/quotes/2192.Aristotle")
     return driver
 
